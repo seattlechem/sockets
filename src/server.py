@@ -5,10 +5,11 @@ import time
 def listen():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    sock.bind(('127.0.0.1', 3000))
+    PORT = 3000
+    sock.bind(('127.0.0.1', PORT))
     sock.listen(10)
     now = time.strftime('%H:%M:%S %d/%m/%Y')
-    print('Starting server on port 3000 at {}'.format(now))
+    print('Starting server on port {} at {}'.format(PORT, now))
     buffer_length = 8
     while True:
         try:
@@ -26,6 +27,8 @@ def listen():
         except KeyboardInterrupt:
             current_connection.close()
             sock.close()
+            now = time.strftime('%H:%M:%S %d/%m/%Y')
+            print('Stopping server on port {} at {}'.format(PORT, now))
 
 
 if __name__ == "__main__":
