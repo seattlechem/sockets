@@ -11,8 +11,8 @@ def listen():
     now = time.strftime('%H:%M:%S %d/%m/%Y')
     print('Starting server on port {} at {}'.format(PORT, now))
     buffer_length = 8
-    while True:
-        try:
+    try:
+        while True:
             current_connection, address = sock.accept()
             message = b''
             while True:
@@ -24,11 +24,11 @@ def listen():
             print('[{}] Echoed: {}'.format(now, message.decode('utf8')))
             current_connection.sendall(message)
             current_connection.close()
-        except KeyboardInterrupt:
-            current_connection.close()
-            sock.close()
-            now = time.strftime('%H:%M:%S %d/%m/%Y')
-            print('Stopping server on port {} at {}'.format(PORT, now))
+    except KeyboardInterrupt:
+        current_connection.close()
+        sock.close()
+        now = time.strftime('%H:%M:%S %d/%m/%Y')
+        print('Stopping server on port {} at {}'.format(PORT, now))
 
 
 if __name__ == "__main__":
