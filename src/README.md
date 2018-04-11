@@ -1,0 +1,2 @@
+### Lab 11: Sockets
+# User send mesage as commandline argument after client.py, and the message received by server.py will be printed on server terminal. After the message printed on server terminal, it will be echoed back and will be printed on the client terminal. Once the echoed message is returned and printed on the client terminal, the socket on client.py is closed but the server connection will stay open.
