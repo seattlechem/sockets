@@ -1,3 +1,15 @@
+"""
+make sure server.py is running before passing a message as commandline \
+argument after client.py.
+for example, a user will pass a message in terminal as below:
+    python client.py this message will be echoed back
+
+Once you enter the message, it will be printed on server terminal as well as \
+client terminal.
+And subsequently the socket on client terminal will be closed.
+
+"""
+
 import socket
 import time
 import sys

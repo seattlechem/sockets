@@ -1,3 +1,11 @@
+"""
+This server will print the message passed in as commanline argument from \
+client terminal and echo it back to client terminal. This server needs to \
+be running before passing message from the client terminal. The server \
+connection will stay open.
+"""
+
+
 import socket
 import time
 
